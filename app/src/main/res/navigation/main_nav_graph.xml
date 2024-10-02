@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.valenpatel.navigationcomponentpractice.views.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_chooseRecieverFragment"
+            app:destination="@id/chooseRecieverFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_viewBalanceFragment"
+            app:destination="@id/viewBalanceFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+        <action
+            android:id="@+id/action_homeFragment_to_viewTransactionFragment"
+            app:destination="@id/viewTransactionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/viewBalanceFragment"
+        android:name="com.valenpatel.navigationcomponentpractice.views.fragments.ViewBalanceFragment"
+        android:label="fragment_view_balance"
+        tools:layout="@layout/fragment_view_balance" />
+
+    <fragment
+        android:id="@+id/viewTransactionFragment"
+        android:name="com.valenpatel.navigationcomponentpractice.views.fragments.ViewTransactionFragment"
+        android:label="fragment_view_transaction"
+        tools:layout="@layout/fragment_view_transaction" >
+        <action
+            android:id="@+id/action_viewTransactionFragment_to_sendCashFragment"
+            app:destination="@id/sendCashFragment" />
+        <argument
+            android:name="amount"
+            app:argType="long"
+            android:defaultValue="111L" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseRecieverFragment"
+        android:name="com.valenpatel.navigationcomponentpractice.views.fragments.ChooseRecieverFragment"
+        android:label="fragment_choose_reciever"
+        tools:layout="@layout/fragment_choose_reciever" >
+        <action
+            android:id="@+id/action_chooseRecieverFragment_to_sendCashFragment"
+            app:destination="@id/sendCashFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/sendCashFragment"
+        android:name="com.valenpatel.navigationcomponentpractice.views.fragments.SendCashFragment"
+        android:label="fragment_send_cash"
+        tools:layout="@layout/fragment_send_cash" >
+        <argument
+            android:name="recieverName"
+            app:argType="string" />
+        <argument android:name="amount"
+            app:argType="long"
+            android:defaultValue="51L"
+            />
+    </fragment>
+
+</navigation>
